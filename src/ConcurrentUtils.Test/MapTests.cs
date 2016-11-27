@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace ConcurrentUtils.Test
 {
     [TestFixture]
-    public class MapTests
+    public class MapTests : BaseUnitTest
     {
         [Test]
         public async Task Should_Map_Async()

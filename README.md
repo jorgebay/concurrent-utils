@@ -54,23 +54,19 @@ Creates collection of objects to which apply the asynchronous method in a first-
 
 Returns a `IJobQueue<T>` instance that can be used to enqueue items.
 
-### `Map(IList<TSource> source, int limit, Func<TSource, Task<TResult>> method)`
-
-Asynchronously projects each element of a sequence into a new form, limiting the amount of operations in parallel without blocking.
-
-Returns a `Task` that gets completed with the transformed elements or faulted when any of the transformation operations transition to faulted state.
-
 **Example** 
 
 ```csharp
 // Create the queue providing the method that is going to be used to asynchronously process
 // each item and the concurrency limit
-IJobQueue<string> queue = ConcurrentUtils.CreateQueue(2, url => client.GetStringAsync(url));
+IJobQueue<string> jobQueue = ConcurrentUtils.CreateQueue(2, url => client.GetStringAsync(url));
 // Add items to the queue that are going to be processed according to the concurrency limit
-queue.Enqueue("https://www.google.com/");
-queue.Enqueue("https://www.microsoft.com/net/core");
-queue.Enqueue("https://www.nuget.org/");
-queue.Enqueue("https://dotnet.github.io/");
+Task t1 = jobQueue.Enqueue("https://www.google.com/");
+Task t2 = jobQueue.Enqueue("https://www.microsoft.com/net/core");
+Task t3 = jobQueue.Enqueue("https://www.nuget.org/");
+Task t4 = jobQueue.Enqueue("https://dotnet.github.io/");
+// Items are processed as FIFO a queue, without exceeding the concurrency limit
+await Task.WhenAll(t1, t2, t3, t4);
 ```
 
 ## License

@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace ConcurrentUtils.Test
 {
     [TestFixture]
-    public class TimesTest
+    public class TimesTest : BaseUnitTest
     {
         [Test]
         public async Task Should_Complete_Task_When_All_Tasks_Are_Completed()
@@ -67,11 +67,7 @@ namespace ConcurrentUtils.Test
         [Test]
         public void Should_Start_At_Most_Limit_Operations_In_Parallel()
         {
-            var tcsArray = new TaskCompletionSource<bool>[100];
-            for (var i = 0; i < tcsArray.Length; i++)
-            {
-                tcsArray[i] = new TaskCompletionSource<bool>();
-            }
+            var tcsArray = GetTaskCompletionSources<bool>(100);
             var counter = 0;
             Func<long, Task> method = index =>
             {
