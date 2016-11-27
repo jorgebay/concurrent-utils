@@ -72,7 +72,7 @@ namespace ConcurrentUtils
         }
 
         /// <summary>
-        /// Awaits if its possible to 
+        /// Awaits an available slot and starts the async operation.
         /// </summary>
         private async Task Run(T item)
         {
