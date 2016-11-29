@@ -10,6 +10,8 @@ Provides classes useful in concurrent programming.
 PM> Install-Package ConcurrentUtils
 ```
 
+[![Build Status](https://travis-ci.org/jorgebay/concurrent-utils.svg?branch=master)](https://travis-ci.org/jorgebay/concurrent-utils)
+
 ## Functionalities
 
 ### `Times(long times, int limit, Func<long, Task> method)`
