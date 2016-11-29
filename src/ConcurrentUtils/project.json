@@ -1,6 +1,6 @@
 ﻿{
   "name": "ConcurrentUtils",
-  "version": "1.0.0-alpha1",
+  "version": "1.0.0",
   "authors": [ "Jorge Bay Gondra" ],
   "title": "C# Concurrent Utilities",
   "description": "Provides classes useful in concurrent programming.",
@@ -8,7 +8,7 @@
   "packOptions": {
     "summary": "Provides classes useful in concurrent programming.",
     "licenseUrl": "https://github.com/jorgebay/concurrent-utils/blob/master/LICENSE.txt",
-    "tags": [ "async", "concurrent", "concurrency", "parallel", "times", "map", "queue", "netcore" ],
+    "tags": [ "async", "concurrent", "concurrency", "parallel", "times", "map", "task", "queue", "netcore" ],
     "repository": { "url": "https://github.com/jorgebay/concurrent-utils" }
   },
   "buildOptions": {
