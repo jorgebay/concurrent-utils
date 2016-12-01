@@ -72,7 +72,7 @@ namespace ConcurrentUtils
 
         /// <summary>
         /// Creates collection of objects to which apply the asynchronous method in a first-in first-out manner.
-        /// <para>Items added to the queue are processed in parallel, up to the concurrency limit.</para>
+        /// <para>Items added to the queue are processed in parallel according to the given limit.</para>
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="limit">The maximum amount of async operations in parallel.</param>
