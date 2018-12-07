@@ -38,6 +38,11 @@ namespace ConcurrentUtils
             {
                 limit = (int) times;
             }
+            
+            if(limit <= 0) {
+                tcs.TrySetResult(true);
+            }
+            
             for (var i = 0; i < limit; i++)
             {
                 ExecuteOnceAndContinue(times, method, tcs, counter);
@@ -63,6 +68,11 @@ namespace ConcurrentUtils
             {
                 limit = source.Count;
             }
+            
+            if(limit <= 0) {
+                tcs.TrySetResult(resultArray);
+            }
+            
             for (var i = 0; i < limit; i++)
             {
                 MapOneByOne(source, resultArray, method, tcs, counter);
